@@ -106,8 +106,8 @@ if ('Worker' in locals() and 'PyWSGIHandler' in locals() and
 
     class GunicornWebSocketHandler(PyWSGIHandler, WebSocketHandler):
         def log_request(self):
-            if '101' not in self.status:
-                super(GunicornWebSocketHandler, self).log_request()
+            # if '101' not in self.status:
+            super(GunicornWebSocketHandler, self).log_request()
 
     Worker.wsgi_handler = GunicornWebSocketHandler
     worker = Worker
